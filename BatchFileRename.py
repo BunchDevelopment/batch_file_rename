@@ -32,18 +32,19 @@ def main () :
     try: 
         path = input('Name a directory that you want the files to be renamed in: \n')
         if(path.endswith('\\') or path.endswith('/')):
-            print('yay')
+            files = os.listdir(path)
+            string_files = " ".join(files)
+            verify_files = input("Are these the files you want renamed? \n " + string_files + '\n')
+            if("y" in verify_files.lower()) :
+                rename_file(files, path)
+                print('Successfully renamed all your files!')
+            else :
+                print("Not recognized, please try again")
+        
         else :
             print('Your path must end with \\ or /')
             main()
-        files = os.listdir(path)
-        string_files = " ".join(files)
-        verify_files = input("Are these the files you want renamed? \n " + string_files + '\n')
-        if("y" in verify_files.lower()) :
-            rename_file(files, path)
-            print('Successfully renamed all your files!')
-        else :
-            print("Not recognized, please try again")
+        
 
     except Exception as e:
         print('ERROR!: ', e)
