@@ -27,7 +27,7 @@ def main () :
             rename_file(files, path)
 
     try: 
-        path = input('Name a directory that you want the files to be renamed in: \n')
+        path = input('Give a path to the directory that you want to rename files: \n')
         if(path.endswith('\\') or path.endswith('/')):
             files = os.listdir(path)
             string_files = ' '.join(files)
@@ -36,7 +36,7 @@ def main () :
                 rename_file(files, path)
                 print('Successfully renamed all your files!\n')
             else :
-                print('Not recognized, please try again.\n')
+                print('Restart the script to try again.\n')
         
         else :
             print('Your path must end with \\ or /')
@@ -47,4 +47,4 @@ def main () :
         print('ERROR!: ', e)
 
 if __name__ == '__main__':
-   main()
+    main()
